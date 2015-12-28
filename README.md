@@ -21,11 +21,13 @@
 
 ## Usage
 
-* clone this repo: `git clone https://github.com/dydx/alpine-nginx-php-mariadb`
+* clone this repo: `git clone https://github.com/SpiralOutDotEu/dockervel.git`
 * cd in: `cd dockervel`
+* run as su: `su`
 * add aliases: `. ./aliases.sh`
 * run: `dup`
 and you have a server running!
+
 ## aliases
 aliases.sh contains shortcuts to common commands. 
 run dot space dot /aliashes.sh to activate aliases for this terminal session.
@@ -135,6 +137,15 @@ The base memory usage for the containers of the server running is about 110 MB.
 * mysql: 97 MB
 * redis:  1 MB
 ```
+
+## Credits
+Thanx to:
+* [Josh Sandlin](https://github.com/dydx)
+* [Dylan Lindgren](https://github.com/dylanlindgren)
+* [10Startups](https://github.com/tenstartups)
+* [Tom Sowerby](https://medium.com/@tomsowerby)
+
+
 
 
 
