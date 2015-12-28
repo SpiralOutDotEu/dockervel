@@ -81,15 +81,6 @@ $redis->set('name', 'myname');
 $redis->get('name'); 
 ```
 
-### Configure Laravel's cache and session with redis
-Change in `.env` from `file` to `redis` 
-```
-CACHE_DRIVER=redis
-SESSION_DRIVER=redis
-QUEUE_DRIVER=sync
-```
-
-
 ### Running Artisan commands
 type `dartisan ` followed by an artisan command
 ```
@@ -105,13 +96,13 @@ example:
 $ dcomposer update
 $ dcomposer require predis/predis
 ```
-### nodejs
+### Nodejs
 to install node modules in your project run
 ```
 $ dnodejs npm install
 ```
 
-### gulp
+### Gulp
 install gulp with:
 ```
 dnodejs gulp install:
@@ -127,9 +118,23 @@ add gulp watch:
 dgulp-watch
 ```
 
-## size
+## Size
 
-* front: 70.05 MB
-* mysql: 199.5 MB
+The size of images is about 750 MB:
+```
+* front:     70.05 MB
+* mysql:    199.50 MB
+* redis:      8.50 MB
+* composer: 236.80 MB
+* nodejs:    36.09 MB
+* artisan   208.80 MB
+```
+The base memory usage for the containers of the server running is about 110 MB.
+```
+* front: 18 MB
+* mysql: 97 MB
+* redis:  1 MB
+```
+
 
 
