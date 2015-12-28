@@ -1,13 +1,13 @@
 #Dockervel
 ##A complete Laravel development environment in Docker Containers:
 
-###Bring Up a Laravel development environment with a single command easy as `dup`
-###Execute Artisan commands easy as  `dartisan make:auth`
-###Run Composer command easy as `dcomposer update`
-###Run NodeJS script easy as `dnodejs npm install`
-###Run gulp watch easy as `dgulp-watch`
-###Containers managed with docker-compose
-###Lightweight as it is mostly based in Linux Alpine base image of 5MB.
+* Bring Up a Laravel development environment with a single command easy as `dup`
+* Execute Artisan commands easy as  `dartisan make:auth`
+* Run Composer command easy as `dcomposer update`
+* Run NodeJS script easy as `dnodejs npm install`
+* Run gulp watch easy as `dgulp-watch`
+* Containers managed with docker-compose
+* Lightweight as it is mostly based in Linux Alpine base image of 5MB.
 
 ###Containers included 
 * Nginx 1.8.0 & PHP 5.6 running in Alpine
@@ -26,7 +26,7 @@
 * add aliases: `. ./aliases.sh`
 * run: `dup`
 and you have a server running!
-### aliases
+## aliases
 aliases.sh contains shortcuts to common commands. 
 run dot space dot /aliashes.sh to activate aliases for this terminal session.
 ```
@@ -79,6 +79,7 @@ Use it like:
 $redis= LaravelRedis::connection();
 $redis->set('name', 'myname');
 $redis->get('name'); 
+```
 
 ### Configure Laravel's cache and session with redis
 Change in `.env` from `file` to `redis` 
