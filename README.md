@@ -21,6 +21,8 @@
 
 ## Usage
 
+Make sure you have `docker` and `docker-compose` installed. See [here for installing them](http://www.spiralout.eu/2015/12/docker-installation-in-linux-mint-and.html)
+
 * clone this repo: `git clone https://github.com/SpiralOutDotEu/dockervel.git`
 * cd in: `cd dockervel`
 * run as su: `su`
