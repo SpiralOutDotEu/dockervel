@@ -25,8 +25,19 @@
 * cd in: `cd dockervel`
 * run as su: `su`
 * add aliases: `. ./aliases.sh`
-* run: `dup`
-and you have a server running!
+* run: `dup` 
+and you have a server running! Hit `localhost` in your browser and you will see nginx fault message becasuse there is no `www/public/index.php`.
+* create new Laravel project: `dcomposer-create`
+* fix permissions: `dpermit`
+* change .env: [see below for options](https://github.com/SpiralOutDotEu/dockervel/blob/master/README.md#configure-laravel-for-mysql)
+* run artisan commands: `dartisan make:auth`
+* fix permissions: `dpermit`
+Now you have a registration system active. Go to `localhost` and register a new user to see that db's are running ok.
+* npm install: `dnodejs npm install`
+* gulp install: `dnodejs gulp install`
+* gulp watch: `dulp-watch`
+Now there is one container running `gulp watch` and monitors changes on files according your `gulpfile.js`  
+
 
 ## aliases
 aliases.sh contains shortcuts to common commands. 
@@ -37,13 +48,13 @@ $ . ./aliases.sh
 and now for this terminal session you have aliases like `dartisan`, `dcomposer`, `dnodejs`, `dup`, `dstop`. 
 
 If you don't want to work with aliases, open the script and see the coressponding commands next to each alias.
-In the following document it is supposed that you have executed aliashes.sh and you have the aliases active. 
+In the following document it is supposed that you have executed `aliashes.sh` as `su` and you have the aliases active. 
 
-
+### Create new Laravel Project
 * create new laravel project: `dcomposer-create`
 * type `localhost` in your browser and you see the Laravel welcome screen
 
-### fix permitions
+### Fix permitions
 since containers have different user in them, you have to change the permisions in www/ folder to be able to write. type:
 ```
 $ dpermit
@@ -51,7 +62,7 @@ $ dpermit
 it will simply `chmod -R 777 www`
 Remember to run `dpermit` after each time the `www` folder has a new file.
 
-### configure laravel for mysql
+### Configure Laravel for mysql
 change `DB_HOST` in `.env` to point to `mysql`. This is the name that it is used in docker-compose.yml (`link: -mysql:mysql`)
 ```
 DB_HOST=mysql
@@ -59,7 +70,7 @@ DB_DATABASE=homestead
 DB_USERNAME=homestead
 DB_PASSWORD=secret
 ```
-### Configure laravel for redis
+### Configure Laravel for redis
 change `REDIS_HOST` in `.env` to point to `predis`. This is the name that it is used in docker-compose.yml (`link: -redis:predis`).
 ```
 REDIS_HOST=predis
