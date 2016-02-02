@@ -1,5 +1,5 @@
 front:
-  image: dydx/alpine-nginx-phpfpm
+  image: spiralout/alpine-nginx-phpfpm
   ports:
     - "80:80"
   volumes_from:
