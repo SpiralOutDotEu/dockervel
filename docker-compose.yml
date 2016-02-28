@@ -47,7 +47,7 @@ nodejs:
      - www
 
 redis:
-   image: tenstartups/alpine-redis
+   image: spiralout/alpine-redis
    volumes_from:
      - redis-data
    ports:
