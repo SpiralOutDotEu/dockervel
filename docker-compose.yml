@@ -20,7 +20,7 @@ sites:
     - ./sites:/etc/nginx/sites-enabled
 
 mysql:
-  image: dydx/alpine-mariadb
+  image: spiralout/alpine-mariadb
   ports:
     - "3306:3306"
   volumes:
