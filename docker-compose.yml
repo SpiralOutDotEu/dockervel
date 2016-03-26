@@ -10,6 +10,46 @@ services:
       - ./www:/var/www
       - ./sites:/etc/nginx/sites-enabled
     links:  
+
+front:
+  image: dydx/alpine-nginx-phpfpm
+  ports:
+    - "80:80"
+  volumes_from:
+    - www
+    - sites
+  links:  
+    - mysql:mysql
+    - redis:predis
+
+www:
+  image: tianon/true
+  volumes:
+    - ./www:/var/www
+
+sites:
+  image: tianon/true
+  volumes:
+    - ./sites:/etc/nginx/sites-enabled
+
+mysql:
+  image: spiralout/alpine-mariadb
+  ports:
+    - "3306:3306"
+  volumes:
+    - ./database:/var/lib/mysql
+
+composer:  
+   image: spiralout/dcomposer
+   volumes_from:
+     - www
+
+artisan:
+   image: spiralout/dartisan
+   volumes_from:
+     - www
+   links:
+>>>>>>> master
       - mysql:mysql
       - redis:predis
     networks:
