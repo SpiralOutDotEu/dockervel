@@ -49,7 +49,6 @@ artisan:
    volumes_from:
      - www
    links:
->>>>>>> master
       - mysql:mysql
       - redis:predis
     networks:
