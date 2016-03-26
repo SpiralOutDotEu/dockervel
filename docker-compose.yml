@@ -3,13 +3,24 @@ version: '2'
 services:
   nginx:
     image: dydx/alpine-nginx-phpfpm
-    #build: ./nginx
     ports:
       - "80:80"
     volumes:
       - ./www:/var/www
       - ./sites:/etc/nginx/sites-enabled
     links:  
+      - mysql:mysql
+      - redis:predis
+    networks:
+      - front-tier
+      - back-tier
+      
+
+  artisan:
+    image: spiralout/dartisan
+    volumes:
+      - ./www:/var/www
+    links:
       - mysql:mysql
       - redis:predis
     networks:
@@ -28,31 +39,21 @@ services:
   composer:  
     image: spiralout/dcomposer
     volumes:
-       - ./www:/var/www
-    networks:
-       - back-tier
-
-  artisan:
-    image: spiralout/dartisan
-    volumes:
       - ./www:/var/www
-    links:
-      - mysql:mysql
-      - redis:predis
     networks:
       - back-tier
 
   nodejs:  
     image: spiralout/dnodejs
     volumes:
-       - ./www:/var/www
+      - ./www:/var/www
     networks:
       - back-tier
 
   redis:
     image: spiralout/alpine-redis
     volumes:
-       - ./redis-data:/data
+      - ./redis-data:/data
     networks:
       - back-tier
 
