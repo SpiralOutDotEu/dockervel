@@ -3,7 +3,7 @@ shopt -s expand_aliases
 alias dbuild='docker-compose build'
 alias dup='docker-compose up -d'
 alias dstop='docker-compose stop'
-alias drun='docker-compose run -d --service-ports front'
+alias drun='docker-compose run -d --service-ports nginx'
 alias dcomposer='docker-compose run composer'
 alias dcomposer-create='docker-compose run composer create-project laravel/laravel /var/www --prefer-dist'
 alias dpermit='chmod -R 777 www'

@@ -8,6 +8,7 @@
 * Run gulp watch easy as `dgulp-watch`
 * Containers managed with docker-compose
 * Lightweight as it is mostly based in Linux Alpine base image of 5MB.
+* Using Docker-composer version 2 (new)
 
 ###Containers included 
 * Nginx 1.8.0 & PHP 5.6 running in Alpine
@@ -21,18 +22,18 @@
 
 ## Usage
 
-Make sure you have `docker` and `docker-compose` installed. See [here for installing them](http://www.spiralout.eu/2015/12/docker-installation-in-linux-mint-and.html)
+Make sure you have `docker` `docker-machine` and `docker-compose` installed. See [here for installing them](http://www.spiralout.eu/2015/12/docker-installation-in-linux-mint-and.html)
 
 * clone this repo: `git clone https://github.com/SpiralOutDotEu/dockervel.git`
 * cd in: `cd dockervel`
-* run as su: `su`
+* run as su: `sudo su`
 * add aliases: `. ./aliases.sh`
 * run: `dup` 
 and you have a server running! Hit `localhost` in your browser and you will see nginx fault message becasuse there is no `www/public/index.php`.
 * create new Laravel project: `dcomposer-create`
 * fix permissions: `dpermit`
 * change .env: [see below for options](https://github.com/SpiralOutDotEu/dockervel/blob/master/README.md#configure-laravel-for-mysql)
-* run artisan commands: `dartisan make:auth`
+* run artisan commands: `dartisan make:auth` , `dartisan migrate`
 * fix permissions: `dpermit`
 Now you have a registration system active. Go to `localhost` and register a new user to see that db's are running ok.
 * npm install: `dnodejs npm install`
@@ -43,7 +44,7 @@ Now there is one container running `gulp watch` and monitors changes on files ac
 
 ## aliases
 aliases.sh contains shortcuts to common commands. 
-run dot space dot /aliashes.sh to activate aliases for this terminal session.
+run dot space dot /aliases.sh to activate aliases for this terminal session.
 ```
 $ . ./aliases.sh
 ```

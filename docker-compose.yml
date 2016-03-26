@@ -1,3 +1,16 @@
+version: '2'
+
+services:
+  nginx:
+    image: dydx/alpine-nginx-phpfpm
+    #build: ./nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./www:/var/www
+      - ./sites:/etc/nginx/sites-enabled
+    links:  
+
 front:
   image: dydx/alpine-nginx-phpfpm
   ports:
@@ -36,26 +49,59 @@ artisan:
    volumes_from:
      - www
    links:
+>>>>>>> master
       - mysql:mysql
       - redis:predis
-   expose:
-    - "3306"  
+    networks:
+      - front-tier
+      - back-tier
 
-nodejs:  
-  image: spiralout/dnodejs
-  volumes_from:
-     - www
+  mysql:
+    image: spiralout/alpine-mariadb
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./database:/var/lib/mysql
+    networks:
+      - back-tier
 
-redis:
-   image: spiralout/alpine-redis
-   volumes_from:
-     - redis-data
-   ports:
-     - "6379"
+  composer:  
+    image: spiralout/dcomposer
+    volumes:
+       - ./www:/var/www
+    networks:
+       - back-tier
 
+  artisan:
+    image: spiralout/dartisan
+    volumes:
+      - ./www:/var/www
+    links:
+      - mysql:mysql
+      - redis:predis
+    networks:
+      - back-tier
 
-redis-data:
-  image: tianon/true
-  volumes:
-    - ./redis-data:/data
+  nodejs:  
+    image: spiralout/dnodejs
+    volumes:
+       - ./www:/var/www
+    networks:
+      - back-tier
 
+  redis:
+    image: spiralout/alpine-redis
+    volumes:
+       - ./redis-data:/data
+    networks:
+      - back-tier
+
+volumes:
+  www:
+  sites:
+  redis-data:
+
+networks:
+  front-tier:
+  back-tier:
+  
