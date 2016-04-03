@@ -2,20 +2,31 @@ version: '2'
 
 services:
   nginx:
-    image: dydx/alpine-nginx-phpfpm
-    #build: ./nginx
+    #image: dydx/alpine-nginx-phpfpm
+    build: ./nginx
     ports:
       - "80:80"
     volumes:
       - ./www:/var/www
-      - ./sites:/etc/nginx/sites-enabled
+      #- ./sites:/etc/nginx/sites-enabled
+      #- ./logs:/data/logs
     links:  
-      - mysql:mysql
-      - redis:predis
+      - php:php
     networks:
       - front-tier
       - back-tier
-      
+  
+  php:
+    #image: php:7.0.4-fpm-alpine
+    build: ./php
+    volumes:
+      - ./www:/var/www/html
+      #- ./logs:/var/log
+    links:
+      - mysql:mysql
+      - redis:predis
+    networks:
+      - back-tier
 
   artisan:
     image: spiralout/dartisan
