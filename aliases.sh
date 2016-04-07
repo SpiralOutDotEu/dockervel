@@ -16,4 +16,5 @@ alias dpsa='docker ps -a'
 alias dstats='docker stats $(docker ps -q)'
 alias dkill='docker stop $(docker ps -q)'
 alias drm='docker rm $(docker ps -a -q)'
+alias dunit='docker-compose run  php php /var/www/html/vendor/bin/phpunit'
 
