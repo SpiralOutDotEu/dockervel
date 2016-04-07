@@ -9,13 +9,14 @@
 * Containers managed with docker-compose
 * Lightweight as it is mostly based in Linux Alpine base image of 5MB.
 * Using Docker-composer version 2 (new)
+* Run PhpUnit test with `dunit`
 
 ###Containers included 
-* Nginx 1.8.0 & PHP 5.6 running in Alpine
+* Nginx 1.9 & PHP 7 running from official versions
 * MariaDB 5.5 running in Alpine
 * Redis running in Alpine
 * Composer PHP running in Alpine.
-* Artisan running in Debian (alpine is missing some PHP packages) 
+* Artisan running in Debian
 * NodeJS with gulp, grunt and bower -g installed in official node:4.2.2-slim base image
 * Volumes mounted as containers 
 
@@ -134,22 +135,10 @@ add gulp watch:
 dgulp-watch
 ```
 
-## Size
-
-The size of images is about 750 MB:
+### PHPUnit
+run your tests with:
 ```
-* front:     70.05 MB
-* mysql:    199.50 MB
-* redis:      8.50 MB
-* composer: 236.80 MB
-* nodejs:    36.09 MB
-* artisan   208.80 MB
-```
-The base memory usage for the containers of the server running is about 110 MB.
-```
-* front: 18 MB
-* mysql: 97 MB
-* redis:  1 MB
+dunit
 ```
 
 ## Credits
