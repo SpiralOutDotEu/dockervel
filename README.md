@@ -38,9 +38,9 @@ and you have a server running! Hit `localhost` in your browser and you will see 
 * fix permissions: `dpermit`
 Now you have a registration system active. Go to `localhost` and register a new user to see that db's are running ok.
 * npm install: `dnodejs npm install`
-* gulp install: `dnodejs gulp install`
-* gulp watch: `dulp-watch`
-Now there is one container running `gulp watch` and monitors changes on files according your `gulpfile.js`  
+* gulp install: `dnodejs npm install gulp`
+* gulp watch: `dgulp-watch`
+Now there is one container running `gulp watch` and monitors changes on files according your `gulpfile.js`. You can see it with `docker ps`, or run `docker-compose run nodejs gulp watch` to keep it running in you terminal.   
 
 
 ## aliases
@@ -122,7 +122,7 @@ $ dnodejs npm install
 ### Gulp
 install gulp with:
 ```
-dnodejs gulp install:
+dnodejs npm install gulp
 ```
 
 run gulp once:
