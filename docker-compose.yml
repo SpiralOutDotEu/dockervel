@@ -2,7 +2,7 @@ version: '2'
 
 services:
   nginx:
-    image: dydx/alpine-nginx-phpfpm
+    image: spiralout/docker-php-nginx
     ports:
       - "80:80"
     volumes:
@@ -28,7 +28,12 @@ services:
       - back-tier
 
   mysql:
-    image: spiralout/alpine-mariadb
+    image: spiralout/alpine-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 'secret'
+      MYSQL_USER: 'homestead'
+      MYSQL_PASSWORD: 'secret'
+      MYSQL_DATABASE: 'homestead'
     ports:
       - "3306:3306"
     volumes:
