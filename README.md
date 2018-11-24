@@ -36,6 +36,7 @@ Make sure you have `docker` `docker-machine` and `docker-compose` installed. See
 and you have a server running! Hit `localhost` in your browser and you will see nginx fault message becasuse there is no `www/public/index.php`.
 
 * create new Laravel project: `dcomposer-create`
+* or create new Lumen project: `dcomposer-create-lumen`
 * fix permissions: `dpermit`
 * change .env: [see below for options](https://github.com/SpiralOutDotEu/dockervel/blob/master/README.md#configure-laravel-for-mysql)
 * run artisan commands: `dartisan make:auth` , `dartisan migrate`
@@ -69,6 +70,11 @@ In the following document it is supposed that you have executed `aliashes.sh` as
 
 * create new laravel project: `dcomposer-create`
 * type `localhost` in your browser and you see the Laravel welcome screen
+
+### or Create new Lumen Project
+
+* create new laravel project: `dcomposer-create-lumen`
+* type `localhost` in your browser and you see the Lumen welcome screen
 
 ### Fix permitions
 
